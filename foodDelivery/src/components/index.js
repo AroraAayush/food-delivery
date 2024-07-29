@@ -1,0 +1,6 @@
+export {default as Header} from './Header/Header.jsx'
+export {default as DesktopMenu} from './Header/DeskTopMenu.jsx'
+export {default as MobileMenu} from './Header/MobileMenu.jsx'
+export {default as Logo} from './Header/Logo.jsx'
+export {default as CartIcon} from './Header/CartIcon.jsx'
+export {default as ProfileIcon} from './Header/ProfileIcon.jsx'
