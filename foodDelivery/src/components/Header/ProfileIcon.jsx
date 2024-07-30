@@ -13,10 +13,12 @@ function ProfileIcon() {
 
 const stateVar=useSelector((state)=>state.user)
 const [user,setUser]=useState(null);
+
 const [showMenu,setShowMenu]=useState(false);
 useEffect(()=>{
   console.log("state var updated : ",stateVar);
 setUser(stateVar)
+console.log("local var updated : ",user)
 },[stateVar])
 
 
