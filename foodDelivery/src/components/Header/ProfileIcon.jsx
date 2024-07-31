@@ -9,7 +9,7 @@ import { useEffect,useState } from 'react'
 import { IoMdAdd } from "react-icons/io";
 import { CiLogout } from "react-icons/ci";
 import { Link } from 'react-router-dom'
-function ProfileIcon() {
+function ProfileIcon({typee,toggleType}) {
 
 const stateVar=useSelector((state)=>state.user)
 const [user,setUser]=useState(null);
@@ -17,9 +17,13 @@ const [user,setUser]=useState(null);
 const [showMenu,setShowMenu]=useState(false);
 useEffect(()=>{
   console.log("state var updated : ",stateVar);
+  if(typee=="mobile")
+  {
+    setShowMenu(false);
+  }
 setUser(stateVar)
 console.log("local var updated : ",user)
-},[stateVar])
+},[stateVar,typee])
 
 
   const firebaseAuth=getAuth(app);
@@ -29,7 +33,9 @@ console.log("local var updated : ",user)
   const handleLogin=async ()=>{
     if(user)
     {
+
      setShowMenu((prev)=>!prev); 
+     toggleType("profile");
     }
     else{
     const response=await signInWithPopup(firebaseAuth,provider);

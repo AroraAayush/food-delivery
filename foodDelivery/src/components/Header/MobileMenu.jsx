@@ -1,12 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoMenu } from "react-icons/io5";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-function MobileMenu() {
+function MobileMenu({typee,toggleType}) {
   const [showMobileMenu,setMobileMenu]=useState(false)
+
+  useEffect(()=>{
+    if(typee=="profile")
+      {
+        setMobileMenu(false);
+      }
+  },[typee])
   return (
     <div className='flex md:hidden relative items-center justify-center ml-11 '>
-      <p onClick={()=>{setMobileMenu((prev)=>!prev)}
+      <p onClick={()=>{setMobileMenu((prev)=>!prev)
+        
+          toggleType("mobile")
+        
+      }
         
       }><IoMenu  className='text-3xl cursor-pointer'/></p>
       {showMobileMenu==true && <div className='absolute top-12 -right-12   bg-slate-200 z-10 flex flex-col w-36 rounded-sm shadow-sm'>

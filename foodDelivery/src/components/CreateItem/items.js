@@ -1,41 +1,37 @@
 export const categories=[
     {
         id:1,
-        name:"Cateory 1",
-        urlParamName:"cat1"
+        name:"Chicken",
+        urlParamName:"chicken"
     },
     {
         id:2,
-        name:"Cateory 2",
-        urlParamName:"cat2"
+        name:"Soft Drink",
+        urlParamName:"softdrink"
     },
     {
         id:3,
-        name:"Cateory 3",
-        urlParamName:"cat3"
+        name:"Fruits",
+        urlParamName:"fruits"
     },
     {
         id:4,
-        name:"Cateory 4",
-        urlParamName:"cat4"
+        name:"Rice",
+        urlParamName:"rice"
     },
     {
         id:5,
-        name:"Cateory 5",
-        urlParamName:"cat5"
+        name:"Fish",
+        urlParamName:"fish"
     },
     {
         id:6,
-        name:"Cateory 6",
-        urlParamName:"cat6"
+        name:"Roti",
+        urlParamName:"roti"
     },
     {
         id:7,
-        name:"Cateory 7",
-        urlParamName:"cat7"
-    },{
-        id:8,
-        name:"Cateory 8",
-        urlParamName:"cat8"
+        name:"Paneer",
+        urlParamName:"paneer"
     }
 ]

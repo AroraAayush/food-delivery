@@ -5,7 +5,8 @@ const userDets=fetchUser();
 console.log(userDets);
 const initialState={
     user:userDets,
-    status:userDets?true:false
+    status:userDets?true:false,
+    storeItems:null
 }
 
 
@@ -20,10 +21,13 @@ const authSlice=createSlice({
         logout:(state,action)=>{
             state.status=false;
             state.user=null;
+        },
+        updateItemsList:(state,action)=>{
+            state.storeItems=action.payload;
         }
     }
 })
 
 export default authSlice.reducer;
 
-export const {login,logout}=authSlice.actions;
+export const {login,logout,updateItemsList}=authSlice.actions;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdSubtitles } from "react-icons/md";
 import { categories } from './items';
 import { FaCloudUploadAlt } from "react-icons/fa";
@@ -8,8 +8,11 @@ import { FaDollarSign } from "react-icons/fa";
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../firebase.config';
 import { saveItem } from '../../utils/firebaseFuncs';
-
+import { useDispatch } from 'react-redux';
+import { updateItemsList } from '../../store/authSlice';
+import { fetchAllItems } from '../../utils/firebaseFuncs';
 function CreateItem() {
+    const dispatch=useDispatch();
     const [title,setTitle]=useState("");
     const [category,setCategory]=useState(null);
     const [price,setPrice]=useState("");
@@ -101,6 +104,8 @@ const data={
 }
 console.log(data);
 saveItem(data)
+fetchData();
+
 setFields(true);
         setAlertType("success")
         setMsg("Item added Successfully")
@@ -125,13 +130,20 @@ catch(e)
 }
 
 const clearData=()=>{
-    // setTitle("");
-    setCategory("Select any Category");
-    // setPrice("");
-    // setCalories("");
-// setImageAsset(null);
+    setTitle("");
+    // setCategory(null);
+    setPrice("");
+    setCalories("");
+setImageAsset(null);
 }
-  
+
+const fetchData=async()=>{
+    await fetchAllItems().then((data)=>{
+        dispatch(updateItemsList(data));
+      
+    })
+  }
+ useEffect(()=>{ console.log(" value of select catwory : ",category)},[category])
     return (
     
     <div className='lg:w-3/4 min-h-screen w-[90%] m-auto flex flex-col items-center justify-center overflow-y-hidden'>
@@ -148,7 +160,7 @@ const clearData=()=>{
 
 
 <div className='w-full bg-neutral-200 border-2 border-gray-200' >
-    <select  className='w-full bg-neutral-100 p-3 text-headingColor capitalize text-base font-medium' 
+    <select defaultValue={"other"} className='w-full bg-neutral-100 p-3 text-headingColor capitalize text-base font-medium' 
     onChange={(e)=>{
         console.log(e.target.value)
         setCategory(e.target.value)}}

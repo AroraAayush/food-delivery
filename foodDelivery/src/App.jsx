@@ -5,7 +5,27 @@ import Demo2 from "./components/Demo2"
 import {AnimatePresence} from 'framer-motion'
 import Home from "./components/Home/Home"
 import CreateItem from "./components/CreateItem/CreateItem"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { updateItemsList } from "./store/authSlice"; 
+import { fetchAllItems } from "./utils/firebaseFuncs"
 function App() {
+
+  const dispatch=useDispatch();
+    const fetchData=async()=>{
+        await fetchAllItems().then((data)=>{
+          dispatch(updateItemsList(data));
+          console.log("Date is fetched");
+        })
+      }
+
+    useEffect(()=>{
+      fetchData();
+      
+    },[])
+
+  
+  
   return (
     <AnimatePresence>
     <div className=" w-screen h-auto flex flex-col bg-primary ">
