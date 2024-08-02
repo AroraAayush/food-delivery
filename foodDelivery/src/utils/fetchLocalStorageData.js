@@ -6,3 +6,23 @@ export const fetchUser=()=>{
     return userDets;
     
 }
+
+
+export const fetchCartDetails=()=>{
+    const cartDets=localStorage.getItem('cartItems')
+    if(cartDets)
+    return JSON.parse(localStorage.getItem('cartItems'))
+else
+    return [];
+    
+}
+
+
+export const fetchCartTotal=()=>{
+    const cartDets=localStorage.getItem('cartTotal')
+    if(cartDets)
+    return JSON.parse(localStorage.getItem('cartTotal'))
+else
+    return 0;
+    
+}

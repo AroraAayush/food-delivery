@@ -1,14 +1,15 @@
 import {getApp,getApps, initializeApp} from 'firebase/app'
 import {getFirestore} from 'firebase/firestore'
 import {getStorage} from 'firebase/storage'
+import { conf } from './conf/config';
 const firebaseConfig = {
-    apiKey: "AIzaSyB37gCCybMIxnbJndHEGInNbXOeXq8Rhfw",
-    authDomain: "food-delivery-a3ba2.firebaseapp.com",
-    projectId: "food-delivery-a3ba2",
-    storageBucket: "food-delivery-a3ba2.appspot.com",
-    messagingSenderId: "146572514072",
-    appId: "1:146572514072:web:caa3b016714af6cd97046d",
-    measurementId: "G-NL9172F1MW"
+    apiKey:conf.apiKey ,
+    authDomain: conf.authDomain,
+    projectId: conf.projectId,
+    storageBucket: conf.storageBucket,
+    messagingSenderId: conf.messagingSenderId,
+    appId: conf.appId,
+    measurementId: conf.measurementId
   };
 
 

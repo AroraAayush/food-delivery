@@ -34,7 +34,7 @@ function List() {
         
     </div>
     </div>
-    <ItemsDisplay data={items && items.filter((item)=>item.category!="fruits")
+    <ItemsDisplay data={items && items.filter((item)=>item.category=="fruits")
     } flag={false} scrollValue={scrollValue}/>
 
       

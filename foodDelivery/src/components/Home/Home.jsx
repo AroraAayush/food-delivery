@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from './Hero'
 import List from './List'
 import Menu from './Menu'
+import Cart from './Cart'
 
 function Home() {
   return (
@@ -9,6 +10,7 @@ function Home() {
       <Hero/>
       <List/>
       <Menu/>
+      <Cart/>
       
         
     </div>

@@ -21,3 +21,14 @@ export const fetchAllItems=async()=>{
     return items.docs.map((item)=>item.data());
 
 }
+
+
+export const saveOrder=async (data)=>{
+try{
+    const res=await setDoc(doc(firestore, "orders", `${Date.now()}`), data);
+
+}
+catch(e){
+console.log("Order faileddd....")
+}
+}

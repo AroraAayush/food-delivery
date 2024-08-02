@@ -9,9 +9,11 @@ import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { updateItemsList } from "./store/authSlice"; 
 import { fetchAllItems } from "./utils/firebaseFuncs"
+import Cart from "./components/Home/Cart"
 function App() {
 
   const dispatch=useDispatch();
+  
     const fetchData=async()=>{
         await fetchAllItems().then((data)=>{
           dispatch(updateItemsList(data));
@@ -27,7 +29,7 @@ function App() {
   
   
   return (
-    <AnimatePresence>
+    <AnimatePresence >
     <div className=" w-screen h-auto flex flex-col bg-primary ">
       <Header/>
       <main className="mt-24">
@@ -35,6 +37,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}></Route>
             <Route path="/addnewItem" element={<CreateItem/>}></Route>
+            {/* <Route path="/cart" element={<Cart/>}> */}
+           {/* / </Route> */}
           </Routes>
         
           
