@@ -55,7 +55,7 @@ function Cart() {
     animate={{opacity:1 ,x:0}}
     exit={{opacity:0 ,x:200}}
     transition={{duration:1.5,ease:"linear"}}
-    className={`${stateCartShow?"flex":"hidden"} fixed top-[92px] right-0 min-w-350 w-370 h-[calc(100vh-40px)] z-50 bg-white rounded-l-xl   flex-col `}>
+    className={`${stateCartShow?"flex":"hidden"} fixed top-[92px] right-0  min-w-350 w-370  h-[calc(100vh-40px)] z-50 bg-white rounded-l-xl   flex-col `}>
       <div className='w-full flex flex-row justify-between items-center h-10 p-3'>
         <BiArrowBack onClick={()=>{dispatch(updateCartShow(false))}}   className='w-10 h-5 cursor-pointer'/>
         <span className='text-headingColor text-base font-semibold'>Cart</span>
